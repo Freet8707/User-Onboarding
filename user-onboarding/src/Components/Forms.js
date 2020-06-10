@@ -79,16 +79,16 @@ function Form() {
     return (
         <div>
             <form onSubmit={submitForm}>
-                <label htmlFor='name'>Name: <br />
+                <label htmlFor='name'><span>Name:</span> <br />
                     <input type='text' id='name' name='name' placeholder='Enter Name' onChange={handleChange} />
                 </label>{errors.name.length > 0 ? <p>{errors.name}</p> : null}<br />
-                <label htmlFor='email'>Email: <br />
+                <label htmlFor='email'><span>Email:</span> <br />
                     <input type='text' id='email' name='email' placeholder='Enter Email Address' onChange={handleChange} />
                 </label><br />
-                <label htmlFor='password'>Choose a Password: <br />
+                <label htmlFor='password'><span>Choose a Password:</span> <br />
                     <input type='text' id='password' name='password' placeholder='Enter Password' onChange={handleChange} />
                 </label><br />
-                <label htmlFor='terms'>Please Agree to the Terms and Conditions: <br />
+                <label htmlFor='terms'><span>Please Agree to the Terms and Conditions:</span> <br />
                     <input type='checkbox' id='terms' name='terms' onChange={handleChange} />
                 </label><br />
                 <button type='submit' disabled={buttonDisabled} >Submit</button>
