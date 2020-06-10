@@ -10,7 +10,7 @@ function Form() {
         terms: ""
     })
     
-    const [errors, setErrrors] = useState({
+    const [errors, setErrors] = useState({
         name: "",
         email: "",
         password: "",
@@ -35,6 +35,24 @@ function Form() {
             .oneOf([true], 'must agree to terms and conditions')
     })
     
+    const validateFunction = e => {
+        yup
+        .reach(formSchema, e.target.name)
+        .validate(e.target.value)
+        .then(valid => {
+            setErrors({
+                ...errors,
+                [e.target.name]: ""
+            })
+        })
+        .catch(err => {
+            setErrors({
+                ...errors,
+                [e.target.name]: err.errors[0]
+            })
+        })
+    }
+    
     const handleChange = e => {
         e.persist()
         console.log('name of input that fired event', e.target.name)
@@ -42,7 +60,8 @@ function Form() {
             ...newUser,
             [e.target.name]: e.target.type === 'checkbox' ? e.target.checked : e.target.value
         }
-
+        
+        validateFunction(e)
         setNewUser(newForm)
     }
 
@@ -62,7 +81,7 @@ function Form() {
             <form onSubmit={submitForm}>
                 <label htmlFor='name'>Name: <br />
                     <input type='text' id='name' name='name' placeholder='Enter Name' onChange={handleChange} />
-                </label><br />
+                </label>{errors.name.length > 0 ? <p>{errors.name}</p> : null}<br />
                 <label htmlFor='email'>Email: <br />
                     <input type='text' id='email' name='email' placeholder='Enter Email Address' onChange={handleChange} />
                 </label><br />
