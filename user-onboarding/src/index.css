@@ -75,7 +75,7 @@ input:focus {
   font-size: 1.8rem;
   color: white;
   border-radius: 5px;
-  background-color: #07ff51;
+  background-color: rgba(7, 255, 81, .5);
 }
 
 .submitButton:disabled {
