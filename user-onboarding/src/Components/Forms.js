@@ -100,7 +100,7 @@ function Form() {
         <div>
             <form onSubmit={submitForm}>
                 <label htmlFor='name'><span>Name:</span> <br />
-                    <input type='text' id='name' name='name' placeholder='Enter Name' value={newUser.name} onChange={handleChange} />
+                    <input data-cy='name' type='text' id='name' name='name' placeholder='Enter Name' value={newUser.name} onChange={handleChange} />
                 </label>{errors.name.length > 0 ? <p className='error' >{errors.name}</p> : null}<br />
                 <label htmlFor='email'><span>Email:</span> <br />
                     <input type='text' id='email' name='email' placeholder='Enter Email Address' value={newUser.email} onChange={handleChange} />
