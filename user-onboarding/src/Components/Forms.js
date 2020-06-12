@@ -106,7 +106,7 @@ function Form() {
                     <input type='text' id='email' name='email' placeholder='Enter Email Address' value={newUser.email} onChange={handleChange} />
                 </label>{errors.email.length > 0 ? <p className='error' >{errors.email}</p> : null}<br />
                 <label htmlFor='password'><span>Choose a Password:</span> <br />
-                    <input type='text' id='password' name='password' placeholder='Enter Password' value={newUser.password} onChange={handleChange} />
+                    <input type='password' id='password' name='password' placeholder='Enter Password' value={newUser.password} onChange={handleChange} />
                 </label>{errors.password.length > 0 ? <p className='error' >{errors.password}</p> : null}<br />
                 <label htmlFor='terms'><span>Please Agree to the Terms and Conditions:</span> <br />
                     <input className='checkbox' type='checkbox' id='terms' name='terms' checked={newUser.terms} onChange={handleChange} />
