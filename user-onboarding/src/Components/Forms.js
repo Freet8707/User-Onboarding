@@ -3,6 +3,8 @@ import * as yup from 'yup'
 import axios from 'axios'
 
 function Form() {
+    const [post, setPost] = useState([])
+
     const [newUser, setNewUser] = useState({
         name: "",
         email: "",
@@ -73,6 +75,11 @@ function Form() {
 
     const submitForm = e => {
         e.preventDefault();
+        axios
+        .post('https://reqres.in/api/users', newUser)
+        .then(res => {
+            console.log(res.data)
+        })
         console.log('form submitted')
     }
 
