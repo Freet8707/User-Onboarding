@@ -78,7 +78,17 @@ function Form() {
         axios
         .post('https://reqres.in/api/users', newUser)
         .then(res => {
-            console.log(res.data)
+            // console.log(res.data)
+            setPost(res.data)
+            setNewUser({
+                name: "",
+                email: "",
+                password: "",
+                terms: ""
+            })
+        })
+        .catch(err => {
+            console.log('error', err)
         })
         console.log('form submitted')
     }
@@ -87,16 +97,16 @@ function Form() {
         <div>
             <form onSubmit={submitForm}>
                 <label htmlFor='name'><span>Name:</span> <br />
-                    <input type='text' id='name' name='name' placeholder='Enter Name' onChange={handleChange} />
+                    <input type='text' id='name' name='name' placeholder='Enter Name' value={newUser.name} onChange={handleChange} />
                 </label>{errors.name.length > 0 ? <p>{errors.name}</p> : null}<br />
                 <label htmlFor='email'><span>Email:</span> <br />
-                    <input type='text' id='email' name='email' placeholder='Enter Email Address' onChange={handleChange} />
+                    <input type='text' id='email' name='email' placeholder='Enter Email Address' value={newUser.email} onChange={handleChange} />
                 </label><br />
                 <label htmlFor='password'><span>Choose a Password:</span> <br />
-                    <input type='text' id='password' name='password' placeholder='Enter Password' onChange={handleChange} />
+                    <input type='text' id='password' name='password' placeholder='Enter Password' value={newUser.password} onChange={handleChange} />
                 </label><br />
                 <label htmlFor='terms'><span>Please Agree to the Terms and Conditions:</span> <br />
-                    <input type='checkbox' id='terms' name='terms' onChange={handleChange} />
+                    <input type='checkbox' id='terms' name='terms' checked={newUser.terms} onChange={handleChange} />
                 </label><br />
                 <button type='submit' disabled={buttonDisabled} >Submit</button>
             </form>
