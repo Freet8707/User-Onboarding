@@ -79,7 +79,7 @@ function Form() {
         .post('https://reqres.in/api/users', newUser)
         .then(res => {
             // console.log(res.data)
-            setPost(res.data)
+            setPost([...post, res.data])
             setNewUser({
                 name: "",
                 email: "",
@@ -93,6 +93,9 @@ function Form() {
         console.log('form submitted')
     }
 
+    useEffect(() => {
+        console.log(post)
+    }, [post])
     return (
         <div>
             <form onSubmit={submitForm}>
