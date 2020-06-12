@@ -1,9 +1,12 @@
+html {
+  font-size: 62.5%;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  font-size: 62.5%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -15,4 +18,66 @@ code {
 
 span {
   font-size: 1.1rem;
+}
+
+form {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  background: rgb(221,219,219);
+  background: radial-gradient(circle, rgba(221,219,219,1) 2%, rgba(133,95,157,1) 46%, rgba(57,2,84,1) 99%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+label {
+  font-size: 1.6rem;
+  width: 100%;
+  padding-left: 10px;
+  color: white;
+}
+
+input {
+  height: 40px;
+  width: 330px;
+  max-width: 100%;
+  padding: 0 20px;
+  margin: 10px 0 0 0;
+  background-color: lightgray;
+  border-width: 1px;
+  border-color: rgba(0, 0, 0, .2);
+  border-radius: 5px;
+}
+
+input:focus {
+  border-width: 5px;
+  background-color: rgba(211, 211, 211, .7);
+  font-size: 1.8rem;
+  border: 3px solid dodgerblue;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  align-self: flex-start
+}
+
+.submitButton {
+  margin: 0 0 10px 10px;
+  width: 115px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #07ff51;
+}
+
+.submitButton:disabled {
+  background-color: lightgray;
+  cursor: not-allowed;
+}
+
+.error {
+  color: red;
+  font-size: 1.8rem;
+  margin-left: 10px;
 }

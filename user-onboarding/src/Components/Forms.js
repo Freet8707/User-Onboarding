@@ -98,18 +98,19 @@ function Form() {
             <form onSubmit={submitForm}>
                 <label htmlFor='name'><span>Name:</span> <br />
                     <input type='text' id='name' name='name' placeholder='Enter Name' value={newUser.name} onChange={handleChange} />
-                </label>{errors.name.length > 0 ? <p>{errors.name}</p> : null}<br />
+                </label>{errors.name.length > 0 ? <p className='error' >{errors.name}</p> : null}<br />
                 <label htmlFor='email'><span>Email:</span> <br />
                     <input type='text' id='email' name='email' placeholder='Enter Email Address' value={newUser.email} onChange={handleChange} />
-                </label><br />
+                </label>{errors.email.length > 0 ? <p className='error' >{errors.email}</p> : null}<br />
                 <label htmlFor='password'><span>Choose a Password:</span> <br />
                     <input type='text' id='password' name='password' placeholder='Enter Password' value={newUser.password} onChange={handleChange} />
-                </label><br />
+                </label>{errors.password.length > 0 ? <p className='error' >{errors.password}</p> : null}<br />
                 <label htmlFor='terms'><span>Please Agree to the Terms and Conditions:</span> <br />
-                    <input type='checkbox' id='terms' name='terms' checked={newUser.terms} onChange={handleChange} />
-                </label><br />
-                <button type='submit' disabled={buttonDisabled} >Submit</button>
+                    <input className='checkbox' type='checkbox' id='terms' name='terms' checked={newUser.terms} onChange={handleChange} />
+                </label>{/*errors.terms.length > 0 ? <p>{errors.terms}</p> : null*/}<br />
+                <button className='submitButton' type='submit' disabled={buttonDisabled} >Submit</button>
             </form>
+            <pre>{JSON.stringify(post, null, 2)}</pre>
         </div>
     )
 }
